@@ -16,7 +16,7 @@ gem 'uglifier'
 gem 'webpacker'
 gem 'devise'
 gem 'cloudinary', '~> 1.9.1'
-gem 'dotenv-rails'
+gem 'carrierwave', '~> 1.2'
 group :development do
   gem 'web-console', '>= 3.3.0'
 end

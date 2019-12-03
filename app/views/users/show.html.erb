@@ -1,14 +1,13 @@
 <div class="container">
+<div class="profile-display">
   <i class="fas fa-user"></i>
-  <div class="description">
-    <h1>Hi<%#= current_user.name.capitalize %>!</h1>
-    <p>Description:</p>
-    <%#= current_user.description %>
-  </div>
-
-
-
-  <h3>My pets</h3>
+    <div class="description">
+      <h1>Hi<%#= current_user.name.capitalize %>!</h1>
+      <p>Description:</p>
+      <%#= current_user.description %>
+    </div>
+</div>
+  <h3 class="my-pets">My pets</h3>
   <div class='cards'>
   <%  current_user.animals.each do |animal|%>
    <%= link_to animal_path(animal) do  %>

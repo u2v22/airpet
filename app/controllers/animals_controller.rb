@@ -12,19 +12,20 @@ class AnimalsController < ApplicationController
     @user = current_user
     @booking = Booking.new
   end
-  
+
   def create
     @animal = Animal.new(animal_params)
-    # if @animal.save
-    #   redirect_to user_path
-    # else
-    #   render :new
-    # end
+    @animal.user = current_user
+    if @animal.save
+      redirect_to user_path(current_user)
+    else
+      render :new
+    end
   end
 
   private
 
   def animal_params
-    params.require(:animals).permit(:species, :name, :characteristics, :availability, :location, :photo, :price)
+    params.require(:animal).permit(:species, :name, :characteristics, :availability, :location, :photo, :price)
   end
 end

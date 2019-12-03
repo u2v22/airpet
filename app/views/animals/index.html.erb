@@ -1,0 +1,8 @@
+<p><%= @animals.count %> pets to rent</p>
+<% @animals.each do |animal| %>
+  <div>
+    <%= animal.photo %>
+    <%= animal.name %>
+    <p><%= animal.price %>/ night</p>
+  </div>
+<% end %>

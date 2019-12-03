@@ -1,0 +1,26 @@
+<%=render 'components/banner', photo: @animal.photo%>
+<div class="container">
+ <div>
+    <div class="wrapper">
+
+     <div>
+       <h1><%=@animal.name%> - <%=@animal.species%></h1>
+       <h4><%=@animal.location%></h4>
+     </div>
+
+     <div>
+       <h4><%=@animal.user%></h4>
+     </div>
+
+     <h4>Species: </h4>
+     <p><%=@animal.species%></p>
+     <h4>Description: </h4>
+     <p><%=@animal.characteristics%></p>
+   </div>
+ </div>
+  <%=simple_form_for [@animal] do |f|%>
+    <%=f.submit "Book", class: "btn btn-primary" %>
+  <%end%>
+</div>
+
+

@@ -7,6 +7,12 @@ class AnimalsController < ApplicationController
     @animal = Animal.new
   end
 
+  def show
+    @animal = Animal.find(params[:id])
+    @user = current_user
+    @booking = Booking.new
+  end
+  
   def create
     @animal = Animal.new(animal_params)
     # if @animal.save

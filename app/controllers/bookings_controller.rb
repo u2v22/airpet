@@ -1,6 +1,23 @@
 class BookingsController < ApplicationController
-  private
+  def index
+    @bookings = current_user.bookings
+  end
 
-  def _params
+  def show
+  end
+
+  def new
+  end
+
+  def create
+  end
+
+  def edit
+  end
+
+  def update
+  end
+
+  def destroy
   end
 end

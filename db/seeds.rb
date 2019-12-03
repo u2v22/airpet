@@ -6,9 +6,10 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+Animal.destroy_all
+User.destroy_all
 @elisa = User.new(name: "Elisa", email: "elisa.vanderperre@hotmail.com")
 @elisa.save
-
 @bob = Animal.new(name: "Bob",species: "dog",availability: true,location: "Belgium",photo: "https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500")
 @bob.user = @elisa
 @bob.save
@@ -22,5 +23,6 @@
 )
 @garfield.user = @elisa
 @garfield.save
+
 
 p "#{Animal.count} animals created"

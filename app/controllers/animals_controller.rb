@@ -8,4 +8,5 @@ class AnimalsController < ApplicationController
     @user = current_user
     @booking = Booking.new
   end
+
 end

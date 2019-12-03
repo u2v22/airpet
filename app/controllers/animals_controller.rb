@@ -12,7 +12,7 @@ class AnimalsController < ApplicationController
     @user = current_user
     @booking = Booking.new
   end
-  
+
   def create
     @animal = Animal.new(animal_params)
     # if @animal.save
@@ -25,6 +25,6 @@ class AnimalsController < ApplicationController
   private
 
   def animal_params
-    params.require(:animals).permit(:species, :name, :characteristics, :availability, :location, :photo, :price)
+    params.require(:animal).permit(:species, :name, :characteristics, :availability, :location, :photo, :price)
   end
 end

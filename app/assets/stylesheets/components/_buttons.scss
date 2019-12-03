@@ -1,9 +1,21 @@
 .button-primary {
-  padding: 12px 56px;
+  margin: 12px !important;
+  padding: 8px 56px;
   border-radius: 8px;
   font-size: 16px;
-  background-color: #E0007A;
+  background-color: black;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   color: white;
-  margin: 28px;
+}
+
+.button-primary:hover {
+  color: gray;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
 }

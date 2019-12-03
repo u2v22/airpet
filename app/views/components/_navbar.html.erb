@@ -15,16 +15,16 @@
           <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link" %>
         </li>
         <% else %>
-        <li class="nav-item active">
+        <li class="nav-item active font-weight-bold">
           <%= link_to "Sign In", new_user_session_path, class: "nav-link" %>
         </li>
       <% end %>
 
-      <li class="nav-item active">
+      <li class="nav-item active font-weight-bold">
         <%= link_to "Rent your pet", new_animal_path, class: "nav-link" %>
       </li>
       <li class="nav-item dropdown">
-        <%= image_tag "https://www.catster.com/wp-content/uploads/2018/01/Orange-tabby-cat-sleeping-with-eyes-closed.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+        <%= image_tag "https://image.flaticon.com/icons/svg/17/17004.svg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
           <%= link_to "Action", "#", class: "dropdown-item" %>
           <%= link_to "Another action", "#", class: "dropdown-item" %>

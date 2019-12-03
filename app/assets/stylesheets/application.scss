@@ -2,6 +2,7 @@
 @import "config/fonts";
 @import "config/colors";
 @import "config/bootstrap_variables";
+@import "config/layout";
 
 // External libraries
 @import "bootstrap/scss/bootstrap";
@@ -12,10 +13,3 @@
 @import "components/index";
 @import "pages/index";
 
-.notice {
-  margin: 0px;
-}
-
-.container {
-  margin-top: 30px;
-}

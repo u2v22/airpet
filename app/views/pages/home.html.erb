@@ -3,4 +3,9 @@
   <p>Where you can share your pet with other people that aren't lucky enough to have their own</p>
   <h2>Form here using simpleform for animal species, booking start date and end date</h2>
   <p>submit button here</p>
+
+  <%= simple_form_for @animals do |f|%>
+  <%= f.input :species %>
+  <%= f.submit %>
+  <% end %>
 </div>

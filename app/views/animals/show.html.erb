@@ -1,23 +1,27 @@
 <%=render 'components/banner', photo: @animal.photo%>
-<div >
- <div>
-    <div class="wrapper">
-
+<div class="container">
+   <div>
      <div>
-       <h1><%=@animal.name%> - <%=@animal.species%></h1>
-       <h4><%=@animal.location%></h4>
+       <div>
+         <h1><%=@animal.name%> - <%=@animal.species%></h1>
+         <h4><%=@animal.location%></h4>
+       </div>
+
+       <div>
+         <h4><%=@animal.user%></h4>
+       </div>
      </div>
 
-     <div>
-       <h4><%=@animal.user%></h4>
+     <div class="card">
+       <h5>Species: </h5>
+       <p><%=@animal.species%></p>
+       <h5>Description: </h5>
+       <p><%=@animal.characteristics%></p>
      </div>
-
-     <h4>Species: </h4>
-     <p><%=@animal.species%></p>
-     <h4>Description: </h4>
-     <p><%=@animal.characteristics%></p>
    </div>
- </div>
+
+   <div>
+    <!-- FORM NEEDS A USER TO BE LOGGED IN -->
+   </div>
+
 </div>
-
-

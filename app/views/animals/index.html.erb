@@ -3,7 +3,7 @@
   <div class='cards'>
   <% @animals.each do |animal| %>
     <div class="card-trip">
-        <%= image_tag animal.photo %>
+        <%= cl_image_tag animal.photo %>
        <div class="card-trip-infos">
          <div>
            <h2><%= animal.name %></h2>

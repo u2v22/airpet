@@ -1,9 +1,16 @@
 <p><%= @animals.count %> pets to rent</p>
+
+<div class='cards'>
 <% @animals.each do |animal| %>
-  <div>
-    <%= image_tag animal.photo %>
-    <%= animal.name %>
-    <%= animal.species %>
-    <p><%= animal.price %>/ night</p>
+  <div class="card-trip">
+      <%= image_tag animal.photo %>
+     <div class="card-trip-infos">
+       <div>
+         <h2><%= animal.name %></h2>
+         <p><%= animal.species %></p>
+       </div>
+       <h2 class="card-trip-pricing"><%= animal.price %>/ night</h2>
+     </div>
   </div>
 <% end %>
+</div>

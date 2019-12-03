@@ -9,11 +9,23 @@
 Animal.destroy_all
 User.destroy_all
 
-@elisa = User.new(name: "Elisa", email: "elisa.vanderperre@hotmail.com")
+@elisa = User.new(
+  name: "Elisa",
+  email: "elisa.vanderperre@hotmail.com",
+  password: "password123456789"
+)
 @elisa.save
-@bob = Animal.new(name: "Bob",species: "dog",availability: true, location: "Belgium",photo: "https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500")
+
+@bob = Animal.new(
+  name: "Bob",
+  species: "dog",
+  availability: true,
+  location: "Belgium",
+  photo: "https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+)
 @bob.user = @elisa
-@bob.save
+@bob.save!
+p @bob
 
 @garfield = Animal.new(
   name: "Garfield",
@@ -26,5 +38,5 @@ User.destroy_all
 @garfield.save
 
 
-p "#{Animal.count} users created"
-p "#{User.count} animals created"
+p "#{User.count} users created"
+p "#{Animal.count} animals created"

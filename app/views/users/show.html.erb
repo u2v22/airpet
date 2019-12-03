@@ -1,0 +1,28 @@
+<div class="container">
+  <i class="fas fa-user"></i>
+  <div class="description">
+    <h1>Hi<%#= current_user.name.capitalize %>!</h1>
+    <p>Description:</p>
+    <%#= current_user.description %>
+  </div>
+
+
+
+  <h3>My pets</h3>
+  <div class='cards'>
+  <%  current_user.animals.each do |animal|%>
+   <%= link_to animal_path(animal) do  %>
+    <div class="card-trip">
+       <%= cl_image_tag animal.photo %>
+       <div class="card-trip-infos">
+        <div>
+          <h2><%= animal.name %></h2>
+          <p><%= animal.species %></p>
+        </div>
+        <h2 class="card-trip-pricing"><%= animal.price %>/ night</h2>
+       </div>
+     </div>
+    <% end %>
+  <% end %>
+  </div>
+</div>

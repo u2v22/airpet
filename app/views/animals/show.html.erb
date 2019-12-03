@@ -1,6 +1,12 @@
 <%=render 'components/banner', photo: @animal.photo%>
 <div class="container">
+
    <div>
+
+ <div>
+    <div class="wrapper">
+
+
      <div>
        <div>
          <h1><%=@animal.name%> - <%=@animal.species%></h1>
@@ -19,6 +25,13 @@
        <p><%=@animal.characteristics%></p>
      </div>
    </div>
+
+ </div>
+  <%=simple_form_for [@animal] do |f|%>
+    <%=f.submit "Book", class: "btn btn-primary" %>
+  <%end%>
+</div>
+
 
    <div>
     <!-- FORM NEEDS A USER TO BE LOGGED IN -->

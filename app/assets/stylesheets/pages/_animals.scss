@@ -1,6 +1,25 @@
+
 .wrapper {
       margin-top: 50px;
 }
  h4 {
   color: grey;
  }
+
+.create-form{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 16px;
+}
+
+.input-form{
+  margin-top: 8px;
+  background-color: white;
+  padding: 20px;
+  border-radius: 3px;
+}
+
+.create-animal h1{
+  text-align: center;
+  margin: 36px;
+}

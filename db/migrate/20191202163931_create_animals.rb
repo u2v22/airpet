@@ -7,7 +7,7 @@ class CreateAnimals < ActiveRecord::Migration[5.2]
       t.boolean :availability, default: false
       t.string :location
       t.references :user, foreign_key: true
-      t.string :photo
+      # t.string :photo
 
       t.timestamps
     end

@@ -4,8 +4,16 @@
   <h2>Form here using simpleform for animal species, booking start date and end date</h2>
   <p>submit button here</p>
 
-  <%= simple_form_for @animals do |f|%>
-  <%= f.input :species %>
-  <%= f.submit %>
-  <% end %>
+  <form action="/animals" method="get">
+    <input type="text" name="location" placeholder="Location">
+    <input type="text" name="location" placeholder="What kind of animal">
+
+    <label for="start-date">Start date: </label>
+    <input type="date" name="start_date">
+
+    <label for="end-date">End date: </label>
+    <input type="date" name="end_date">
+    <input type="submit">
+  </form>
+
 </div>

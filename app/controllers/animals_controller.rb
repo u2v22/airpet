@@ -15,11 +15,12 @@ class AnimalsController < ApplicationController
 
   def create
     @animal = Animal.new(animal_params)
-    # if @animal.save
-    #   redirect_to user_path
-    # else
-    #   render :new
-    # end
+    @animal.user = current_user
+    if @animal.save
+      redirect_to user_path(current_user)
+    else
+      render :new
+    end
   end
 
   private

@@ -1,23 +1,24 @@
-<div class='container'>
-  <div class="create-animal">
-    <h1>Hi<%#= current_user.name.capitalize %>! Let's get started listing your pet</h1>
-    <div class="create-form">
-      <div class="input-form">
-        <h3>Step 1</h3>
-        <%= simple_form_for(@animal) do |f| %>
-        <%= f.input :name %>
-        <%= f.input :species, collection: Animal::SPECIES %>
-        <%= f.input :characteristics, as: :text, input_html: {rows: 4} %>
-        <%= f.input :price%>
-        <%= f.input :location%>
-        <%= f.input :availability_start%>
-        <%= f.input :availability_end%>
-        <%= f.input :photo %>
-        <%= f.input :photo_cache, as: :hidden, class:"button-primary" %>
-        <%= f.submit 'Create', class:"button-primary"%>
-        <% end %>
-      </div>
-      <div>
+<div class="animal-new-background">
+  <div class='container'>
+    <div class="create-animal">
+      <h1>Hi<%#= current_user.name.capitalize %>! Let's get started listing your pet</h1>
+      <div class="create-form">
+        <div class="input-form">
+          <h3>Step 1</h3>
+          <%= simple_form_for(@animal) do |f| %>
+          <%= f.input :name %>
+          <%= f.input :species, collection: Animal::SPECIES %>
+          <%= f.input :characteristics, as: :text, input_html: {rows: 4} %>
+          <%= f.input :price%>
+          <%= f.input :location%>
+          <%= f.input :availability%>
+          <%= f.input :photo %>
+          <%= f.input :photo_cache, as: :hidden, class:"button-primary" %>
+          <%= f.submit 'Create', class:"button-primary"%>
+          <% end %>
+        </div>
+        <div>
+        </div>
       </div>
     </div>
   </div>

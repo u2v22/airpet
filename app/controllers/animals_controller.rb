@@ -1,4 +1,5 @@
 class AnimalsController < ApplicationController
+  before_action :animal_find, only: [:edit, :update, :show, :destroy]
   def index
     @animals = Animal.all
   end
@@ -8,7 +9,6 @@ class AnimalsController < ApplicationController
   end
 
   def show
-    @animal = Animal.find(params[:id])
     @user = current_user
     @booking = Booking.new
   end
@@ -23,7 +23,22 @@ class AnimalsController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    @animal.update(animal_params)
+  end
+
+  def destroy
+    @animal.destroy
+    redirect_to user_path(current_user)
+  end
   private
+
+  def animal_find
+    @animal = Animal.find(params[:id])
+  end
 
   def animal_params
     params

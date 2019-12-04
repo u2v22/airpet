@@ -10,18 +10,28 @@
   <h3 class="my-pets-cards">My pets</h3>
   <div class='cards'>
   <%  current_user.animals.each do |animal|%>
-   <%= link_to animal_path(animal) do  %>
     <div class="card-trip">
+   <%= link_to animal_path(animal) do  %>
        <%= cl_image_tag animal.photo %>
+    <% end %>
        <div class="card-trip-infos">
         <div>
           <h2><%= animal.name %></h2>
           <p><%= animal.species %></p>
         </div>
-        <h2 class="card-trip-pricing"><%= animal.price %>/ night</h2>
+        <h2 class="card-trip-pricing">
+          <%= animal.price %>/night
+          <%= link_to edit_animal_path(animal) do%>
+            <i class="far fa-edit"></i>
+          <% end %>
+            <%= link_to animal_path(animal), method: :delete, data: { confirm: "Are you sure?" } do %>
+            <i class="far fa-trash-alt"></i>
+            <% end %>
+        </h2>
        </div>
      </div>
-    <% end %>
   <% end %>
   </div>
 </div>
+
+

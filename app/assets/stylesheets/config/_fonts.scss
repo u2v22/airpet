@@ -14,3 +14,11 @@ $headers-font: "Raleway", "Helvetica", "sans-serif";
 //        font-url('FontFile.ttf') format('truetype')
 // }
 // $my-font: "Font Name";
+
+body {
+  text-decoration: none;
+  a:hover {
+  text-decoration: none;
+  color: white;
+  }
+}

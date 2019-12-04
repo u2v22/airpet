@@ -9,34 +9,46 @@
 Animal.destroy_all
 User.destroy_all
 
-@elisa = User.new(
+PICTURES = [
+  "https://images.unsplash.com/photo-1558618047-f4b511aae74d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
+  "https://images.unsplash.com/photo-1573865526739-10659fec78a5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=958&q=80",
+  "https://images.unsplash.com/photo-1573433618812-f612e727b7d8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80",
+  "https://images.unsplash.com/photo-1573761691575-2c10f2554119?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80",
+  "https://images.unsplash.com/photo-1565194481104-39d1ee1b8bcc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80",
+  "https://images.unsplash.com/photo-1569031089355-8273719dcf2a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80",
+  "https://images.unsplash.com/photo-1569576231685-8a0bb772d2f7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80",
+  "https://images.unsplash.com/photo-1567943556786-6acea6e7f562?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=950&q=80",
+  "https://images.unsplash.com/photo-1568308389933-4d5b260272ff?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80",
+  "https://images.unsplash.com/photo-1568552660092-bec1b0d07852?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80"
+]
+
+SPECIES = [ "cat", "cat", "dog", "dog", "dog", "dog", "cat", "dog", "dog", "cat" ]
+
+user = User.new(
   name: "Elisa",
   email: "elisa.vanderperre@hotmail.com",
-  password: "password123456789"
+  password: "123456"
 )
-@elisa.save
+user.save
 
-@bob = Animal.new(
-  name: "Bob",
-  species: "dog",
-  availability: true,
-  location: "Belgium",
-  photo: "https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-)
-@bob.user = @elisa
-@bob.save!
-p @bob
-
-@garfield = Animal.new(
-  name: "Garfield",
-  species: "cat",
-  availability: true,
-  location: "Spain",
-  photo: "https://icatcare.org/app/uploads/2018/07/Thinking-of-getting-a-cat.png"
-)
-@garfield.user = @elisa
-@garfield.save
-
+puts 'Creating 10 fake animals...'
+index = 0
+10.times do
+  animal = Animal.new(
+    name: Faker::Creature::Cat.name,
+    species: SPECIES[index],
+    availability_start: Date.new(2019,12,1),
+    availability_end: Date.new(2019,12,31),
+    location: Faker::Address.city,
+    remote_photo_url: PICTURES[index],
+    user: user,
+    price: rand(5..50),
+    characteristics: Faker::Food.description
+  )
+  animal.save!
+  index += 1
+end
+puts 'Finished!'
 
 p "#{User.count} users created"
 p "#{Animal.count} animals created"

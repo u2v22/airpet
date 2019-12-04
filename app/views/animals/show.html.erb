@@ -18,10 +18,12 @@
     <p><%=@animal.characteristics%></p>
   </div>
 
- <div>
-  <%=simple_form_for [@animal] do |f|%>
+
+  <div class="d-flex">
+    <%= link_to "Back to all animals", animals_path, class:"button-primary" %>
+    <%=simple_form_for [@animal] do |f|%>
     <%=f.submit "Book", class: "button-primary" %>
-  <%end%>
+    <%end%>
   </div>
 
 

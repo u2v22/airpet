@@ -1,5 +1,6 @@
 class AnimalsController < ApplicationController
-  skip_before_action :authenticate_user!, only: :index
+  before_action :animal_find, only: [:edit, :update, :show, :destroy]
+  skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
     @animals = Animal.all
@@ -10,7 +11,6 @@ class AnimalsController < ApplicationController
   end
 
   def show
-    @animal = Animal.find(params[:id])
     @user = current_user
     @booking = Booking.new
   end
@@ -25,7 +25,22 @@ class AnimalsController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    @animal.update(animal_params)
+  end
+
+  def destroy
+    @animal.destroy
+    redirect_to user_path(current_user)
+  end
   private
+
+  def animal_find
+    @animal = Animal.find(params[:id])
+  end
 
   def animal_params
     params.require(:animal).permit(:species, :name, :characteristics, :availability_start, :availability_end, :location, :photo, :price)

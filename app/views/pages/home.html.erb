@@ -1,21 +1,46 @@
 <html class="home-page">
-  <div class="container white-text">
-    <div class="bottom-left">
-      <h1>Welcome to AirPet</h1>
-      <p>Where you can share your pet with other people that aren't lucky enough to have their own</p>
+  <div class="container">
+      <div class="landing-title">
+        <h1>Welcome to AirPet</h1>
+        <p>Where you can share your pet with other people that aren't lucky enough to have their own</p>
 
-      <form action="/animals" method="get">
-        <input type="text" name="location" placeholder="Location">
-        <input type="text" name="location" placeholder="What kind of animal">
+        <div class="row">
 
-        <label for="start-date">Start date: </label>
-        <input type="date" name="start_date">
+          <div class="col-12 col-md-3  landing-form">
+            <form action="/animals" method="get">
+              <div class='text-center'>
+                <label for="location">Location:</label>
+              </div>
+              <div class='text-center'>
+                <input type="text" name="location" placeholder="Location">
+              </div>
 
-        <label for="end-date">End date: </label>
-        <input type="date" name="end_date">
-        <input type="submit" class="button-primary">
-      </form>
-    </div>
+              <div class='text-center'>
+                <label for="pet">Pet:</label>
+              </div>
+              <div class='text-center'>
+                <input type="text" name="pet" placeholder="What kind of animal">
+              </div>
+
+              <div class='text-center'>
+                <label for="start-date">Start date: </label>
+              </div>
+              <div class='text-center'>
+                <input type="date" name="start_date">
+              </div>
+              <div class='text-center'>
+                <label for="end-date">End date: </label>
+              </div>
+              <div class='text-center'>
+                <input type="date" name="end_date">
+              </div>
+              <div class='text-center'>
+                <input type="submit" class="button-primary">
+              </div>
+            </form>
+           </div>
+            </div>
+      </div>
   </div>
 </html>
 

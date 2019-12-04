@@ -1,5 +1,7 @@
 class AnimalsController < ApplicationController
   before_action :animal_find, only: [:edit, :update, :show, :destroy]
+  skip_before_action :authenticate_user!, only: :index
+  
   def index
     @animals = Animal.all
   end

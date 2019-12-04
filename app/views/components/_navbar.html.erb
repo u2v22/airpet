@@ -25,6 +25,13 @@
       <li class="nav-item active">
         <%= link_to "Rent your pet", new_animal_path, class: "nav-link" %>
       </li>
+      <li>
+        <% if user_signed_in? %>
+          <%= link_to 'Profile', user_path(current_user), class: "nav-link"%>
+        <% else %>
+          <%= '' %>
+        <% end %>
+      </li>
       <li class="nav-item dropdown">
         <%= image_tag "https://www.catster.com/wp-content/uploads/2018/01/Orange-tabby-cat-sleeping-with-eyes-closed.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">

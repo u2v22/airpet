@@ -26,6 +26,8 @@ class AnimalsController < ApplicationController
   private
 
   def animal_params
-    params.require(:animal).permit(:species, :name, :characteristics, :availability_start, :availability_end, :location, :photo, :price)
+    params
+      .require(:animal)
+      .permit(:species, :name, :characteristics, :availability_start, :availability_end, :location, :photo, :price)
   end
 end

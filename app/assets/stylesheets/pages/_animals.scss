@@ -1,9 +1,9 @@
 
 .wrapper {
-      margin-top: 50px;
+  margin-top: 50px;
 }
  h4 {
-  color: grey;
+  color: white;
  }
 
 .create-form{
@@ -22,4 +22,16 @@
 .create-animal h1{
   text-align: center;
   margin: 36px;
+  // color: white;
+}
+
+.animal-new-background{
+  // margin: 0px;
+  background-image: url('https://s3-eu-west-1.amazonaws.com/ourboox-media-prod/wp-content/uploads/2018/04/30114810/family-dog.jpg');
+  background-size:cover;
+  background-attachment: fixed;
+  background-repeat:no-repeat;
+  height:100vh;
+  background-position: -200px 10px;
+    margin: -33px 0px;
 }

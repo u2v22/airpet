@@ -9,7 +9,7 @@
   width: 412px;
   font-size: 16px;
 }
-input {
+.landing-input {
     margin-top: 5px;
     margin-bottom: 5px;
     display:inline-block;
@@ -17,8 +17,7 @@ input {
     margin-left:20px;
     padding:8px;
 }
-
-label {
+.landing-label {
     display:inline-block;
     float: left;
     padding-top: 5px;
@@ -27,6 +26,6 @@ label {
 }
 
 .landing-title{
-  margin-top: 150px;
+  margin-top: 200px;
   color:white;
 }

@@ -10,8 +10,11 @@
     </div>
   </div>
   <div class="pet-header">
-    <h3 class="my-pets-cards">Your pets</h3>
-  </div>
+    <h3 class="my-pets-cards">Your pets
+  <%= link_to new_animal_path do  %>
+    <i class="fas fa-plus"></i>
+  <% end %>
+  </h3>
   <div class='cards'>
   <%  current_user.animals.each do |animal|%>
     <div class="card-trip">

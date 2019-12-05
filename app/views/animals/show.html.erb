@@ -20,13 +20,9 @@
 
  <div>
   <%=simple_form_for [@animal] do |f|%>
+    <%=f.input :start_date %>
+    <%=f.input :end_date %>
     <%=f.submit "Book", class: "button-primary" %>
   <%end%>
   </div>
-
-
-   <div>
-    <!-- FORM NEEDS A USER TO BE LOGGED IN -->
-   </div>
-
 </div>

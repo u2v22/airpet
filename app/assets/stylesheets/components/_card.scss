@@ -1,7 +1,8 @@
 .cards {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
   grid-gap: 16px;
+  margin-right: 16px;
 }
 
 .card-trip {

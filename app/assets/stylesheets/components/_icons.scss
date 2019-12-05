@@ -1,21 +1,20 @@
+.my-pets-cards a{
+  text-decoration: none;
+  color:inherit;
+}
+
 .card-trip-pricing a{
   text-decoration: none;
   color:inherit;
-  text-align: right;
 }
-
-.card-trip-pricing a:hover{
-  text-decoration: none;
-  color: inherit;
-}
-
 .fa-times-circle{
-  color: green;
+  color: #E8401E;
   font-size: 24px;
 }
 
 
 .fa-check{
-  color:#E8401E;
+  color: green;
   font-size: 24px;
 }
+

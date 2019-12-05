@@ -15,12 +15,20 @@
             <p><%= booking.animal.species %></p>
           <p><%= booking.start_date %>~<%= booking.end_date %></p>
           </div>
-          <h2 class="card-trip-pricing">
+          <h2 class="card-trip-pricing text-right">
+            <p> Status: <%= booking.status %></p>
             <%= link_to edit_animal_path(booking.animal) do%>
               <i class="far fa-edit"></i>
             <% end %>
             <%= link_to booking_path(booking.animal), method: :delete, data: { confirm: "Are you sure?" } do %>
               <i class="far fa-trash-alt"></i>
+            <% end %>
+            <br>
+            <%= link_to accept_booking_path(booking), method: :patch do  %>
+            <i class="fas fa-check"></i>
+            <% end %>
+            <%= link_to decline_booking_path(booking), method: :patch do  %>
+            <i class="far fa-times-circle"></i>
             <% end %>
 
           </h2>

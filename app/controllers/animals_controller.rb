@@ -3,7 +3,15 @@ class AnimalsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @animals = Animal.all
+    # @animals = Animal.all
+    @animals = Animal.geocoded
+
+    @markers = @animals.map do |animal|
+      {
+        lat: animal.latitude,
+        lng: animal.longitude
+      }
+    end
   end
 
   def new

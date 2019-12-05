@@ -1,0 +1,31 @@
+.landing-form{
+  margin: 8px;
+  background-color:rgba(0,0,0,0.5);
+  border-radius: 3px;
+  padding:18px 0;
+  color: white;
+  position: fixed;
+  display: block;
+  width: 412px;
+  font-size: 16px;
+}
+.landing-input {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    display:inline-block;
+    vertical-align:middle;
+    margin-left:20px;
+    padding:8px;
+}
+.landing-label {
+    display:inline-block;
+    float: left;
+    padding-top: 5px;
+    text-align: right;
+    width: 140px;
+}
+
+.landing-title{
+  margin-top: 200px;
+  color:white;
+}

@@ -7,7 +7,7 @@
    </div>
 
    <div>
-     <h4><%=@animal.user%></h4>
+     <!-- <h4><%=@animal.user%></h4> -->
    </div>
   </div>
 
@@ -18,11 +18,18 @@
     <p><%=@animal.characteristics%></p>
   </div>
 
+<<<<<<< HEAD
  <div>
   <%=simple_form_for [@animal] do |f|%>
     <%=f.input :start_date %>
     <%=f.input :end_date %>
+=======
+
+  <div class="d-flex">
+    <%= link_to "Back to all animals", animals_path, class:"button-primary" %>
+    <%=simple_form_for [@animal] do |f|%>
+>>>>>>> 0669b545e4f57e286a59e0abbf942e3178f40149
     <%=f.submit "Book", class: "button-primary" %>
-  <%end%>
+    <%end%>
   </div>
 </div>

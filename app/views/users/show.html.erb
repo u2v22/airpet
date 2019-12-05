@@ -1,27 +1,50 @@
 <div class="container">
-<div class="row">
-  <i class="col-sm-12 col-md-6 fas fa-user"></i>
-  <div class="description col-sm-12 col-md-6">
-    <h1>Hi<%#= current_user.name.capitalize %>!</h1>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur expedita ipsam voluptatibus incidunt aperiam quis asperiores voluptatem molestiae necessitatibus delectus ad explicabo totam obcaecati consectetur praesentium doloribus iure commodi vero optio ipsa soluta rerum, fugit veritatis tempora. Fugit dolores commodi, possimus aliquid quibusdam! Autem magni excepturi distinctio, minus libero tenetur animi cum veritatis est rerum deserunt commodi praesentium perferendis dolor nemo, numquam nihil corrupti voluptatibus beatae provident enim labore aliquid molestiae, itaque consequuntur? Pariatur nobis eum, dolorem cumque autem expedita, eveniet ipsum corrupti beatae doloremque tempore alias laborum. Ad nulla earum magnam quidem iste ducimus mollitia eius iusto, ut eum.</p>
-    <%#= current_user.description %>
+  <div class="row user-info">
+    <div class="col-sm-12 col-md-6">
+      <% if current_user.avatar.present? %>
+          <%= cl_image_tag current_user.avatar,class: "avatar-profile"%>
+        <% else %>
+          <%= cl_image_tag "https://www.iconsdb.com/icons/preview/white/user-4-xxl.png", class: "avatar-profile" %>
+        <% end %>
+    </div>
+    <div class="description col-sm-12 col-md-6 ">
+      <h1>Hello <%= current_user.first_name %>,</h1>
+      <br>
+      <h5>Your public description:</h5>
+      <p>I am the owner of the Barcelona Animal Rescue shelter. The pets that come into my shelter deserve attention and love. When you choose to foster a pet from our shelter, you will be changing the quality of life for a little animal. Most of our animals come from the streets of Barcelona. They often come to us malnourished and lack of affection for an extended amount of time.</p>
+      <%#= current_user.description %>
+    </div>
   </div>
-</div>
-  <h3 class="my-pets-cards">My pets</h3>
+  <div class="pet-header">
+    <h3 class="my-pets-cards">Your pets
+  <%= link_to new_animal_path do  %>
+    <i class="fas fa-plus"></i>
+  <% end %>
+  </h3>
   <div class='cards'>
   <%  current_user.animals.each do |animal|%>
-   <%= link_to animal_path(animal) do  %>
     <div class="card-trip">
+   <%= link_to animal_path(animal) do  %>
        <%= cl_image_tag animal.photo %>
+    <% end %>
        <div class="card-trip-infos">
         <div>
           <h2><%= animal.name %></h2>
           <p><%= animal.species %></p>
         </div>
-        <h2 class="card-trip-pricing"><%= animal.price %>/ night</h2>
+        <h2 class="card-trip-pricing">
+          <%= animal.price %>/night
+          <%= link_to edit_animal_path(animal) do%>
+            <i class="far fa-edit"></i>
+          <% end %>
+            <%= link_to animal_path(animal), method: :delete, data: { confirm: "Are you sure?" } do %>
+            <i class="far fa-trash-alt"></i>
+            <% end %>
+        </h2>
        </div>
      </div>
-    <% end %>
   <% end %>
   </div>
 </div>
+
+

@@ -9,6 +9,7 @@ class AnimalsController < ApplicationController
       {
         lat: animal.latitude,
         lng: animal.longitude,
+        potato: animal.id,
         infoWindow: render_to_string(partial: "info_window", locals: { animal: animal })
       }
     end

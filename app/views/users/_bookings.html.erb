@@ -1,0 +1,29 @@
+<div class="pet-header">
+  <h3 class="my-pets-cards">Your Bookings
+    <%= link_to root_path do  %>
+    <i class="fas fa-plus"></i>
+  <% end %></h3>
+  <div class='cards'>
+    <%current_user.bookings.each do |booking|%>
+      <div class="card-trip">
+        <%= link_to animal_path(booking.animal) do  %>
+        <%= cl_image_tag booking.animal.photo %>
+        <% end %>
+        <div class="card-trip-infos">
+          <div>
+            <h2><%= booking.animal.name %></h2>
+            <p><%= booking.animal.species %></p>
+          </div>
+          <h2 class="card-trip-pricing">
+            <%= booking.animal.price %>/night
+            <%#= link_to edit_animal_path(booking.animal) do%>
+              <!-- <i class="far fa-edit"></i> -->
+            <%# end %>
+            <%#= link_to animal_path(booking.animal), method: :delete, data: { confirm: "Are you sure?" } do %>
+              <!-- <i class="far fa-trash-alt"></i> -->
+            <%# end %>
+          </h2>
+        </div>
+      </div>
+    <% end %>
+</div>

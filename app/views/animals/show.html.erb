@@ -1,6 +1,7 @@
 <div class="container">
-  <div class="d-flex justify-content-between">
-    <div class="flex-child">
+  <div class="row">
+    <div class="col">
+
       <%= cl_image_tag(@animal.photo, width: 550, height: 550, crop: :fill) %>
 
       <div class="d-flex">
@@ -19,23 +20,39 @@
         <h5>Description: </h5>
         <p><%=@animal.characteristics%></p>
       </div>
-    </div>
 
-    <div class="flex-child sticky-top">
-      <div class="border-bottom">
-        <h2>Booking</h2>
-        <p>Enter the dates on which you would want to book the <%=@animal.species%> <%=@animal.name%></p>
+      <%= render "reviews" %>
+
+    <div class="border-bottom">
+      <h2>Reviews</h2>
+        <p>Do you want to say something about <%=@animal.name%> the <%=@animal.species%>?</p>
       </div>
-      <%=simple_form_for (@booking) do |f|%>
-      <%=f.input :start_date %>
-      <%=f.input :end_date %>
-      <%=f.hidden_field :animal, value: @animal.id%>
-      <%=f.submit "Book", class: "button-primary" %>
+
+      <%=simple_form_for([@animal, @review]) do |f|%>
+      <%=f.input :rating %>
+      <%=f.input :description %>
+      <%=f.submit "Post review", class: "button-primary"%>
       <%end%>
+
+    </div>
+
+    <div class="col">
+      <div class="sticky-top">
+        <div class="border-bottom">
+          <h2>Booking</h2>
+          <p>Enter the dates on which you would want to book the <%=@animal.species%> <%=@animal.name%></p>
+        </div>
+        <%=simple_form_for (@booking) do |f|%>
+        <%=f.input :start_date %>
+        <%=f.input :end_date %>
+        <%=f.hidden_field :animal, value: @animal.id%>
+        <%=f.submit "Book", class: "button-primary" %>
+        <%end%>
+      </div>
     </div>
   </div>
+</div>
 
-  <div>
-    <%= link_to "Back to all animals", animals_path, class:"button-primary" %>
-  </div>
+<div>
+  <%= link_to "Back to all animals", animals_path, class:"button-primary" %>
 </div>

@@ -22,7 +22,7 @@ DESC = ["Hello there! I bet you noticed my cute face right away. I am currently 
 CITY = ["Barcelona", "Calgary", "Berlin", "New York", "Vancouver", "Maui", "San Francisco", "Stockholm", "Beijing", "Bali"]
 
 user = User.new(
-  name: "Elisa",
+  name: "Elisa Van der Perre",
   email: "elisa.vanderperre@hotmail.com",
   password: "123456"
 )

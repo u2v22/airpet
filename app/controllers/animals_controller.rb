@@ -5,7 +5,6 @@ class AnimalsController < ApplicationController
   def index
     # @animals = Animal.all
     @animals = Animal.geocoded # Animal.wherenot(lat:nil, lng: nil)
-      #
     @markers = @animals.map do |animal|
       {
         lat: animal.latitude,
@@ -21,6 +20,8 @@ class AnimalsController < ApplicationController
   def show
     @user = current_user
     @booking = Booking.new
+    @review = Review.new
+    @reviews = Review.all
   end
 
   def create

@@ -1,0 +1,19 @@
+<div class="pet-header">
+  <h3 class="my-pets-cards">Reviews about <%=@animal.name%></h3>
+  <p><%=@reviews.count%> reviews about <%=@animal.name%></p>
+
+  <%@reviews.each do |review|%>
+    <div class="d-flex justify-content-between">
+      <p><%=review.description%></p>
+      <p><%=review.rating%></p>
+<!--       <%= link_to edit_animal_review_path(review) do%>
+        <i class="far fa-edit"></i>
+      <%end%>
+      <%= link_to animal_review_path(review), method: :delete, data: { confirm: "Are you sure?" } do %>
+        <i class="far fa-trash-alt"></i>
+      <%end%> -->
+    </div>
+  <%end%>
+
+</div>
+

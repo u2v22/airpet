@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  before_action :booking_find, only: [:edit, :update, :show, :destroy]
+  before_action :booking_find, only: [:edit, :update, :show, :destroy, :accept, :decline]
 
   def create
     @booking = Booking.new(booking_params)
@@ -20,6 +20,16 @@ class BookingsController < ApplicationController
 
   def destroy
     @booking.destroy
+    redirect_to user_path(current_user)
+  end
+
+  def accept
+    @booking.update(status: "accepted")
+    redirect_to user_path(current_user)
+  end
+
+  def decline
+    @booking.update(status: "declined")
     redirect_to user_path(current_user)
   end
 

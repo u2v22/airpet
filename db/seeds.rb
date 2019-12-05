@@ -22,7 +22,7 @@ DESC = ["Hello there! I bet you noticed my cute face right away. I am currently 
 CITY = ["Barcelona", "Calgary", "Berlin", "New York", "Vancouver", "Maui", "San Francisco", "Stockholm", "Beijing", "Bali"]
 
 user = User.new(
-  name: "Elisa",
+  name: "Elisa Van der Perre",
   email: "elisa.vanderperre@hotmail.com",
   password: "123456"
 )
@@ -41,18 +41,20 @@ index = 0
     remote_photo_url: PICTURES[index],
     user: user,
     price: rand(5..50),
-    characteristics: DESC[index]
+    characteristics: DESC[index],
+    latitude: Faker::Address.latitude,
+    longitude: Faker::Address.longitude
   )
   animal.save!
   index += 1
 
-    booking = Booking.new(
-      start_date: Date.new(2019,12,1),
-      end_date: Date.new(2019,12,31),
-      user: user,
-      animal: animal
-      )
-    booking.save!
+  booking = Booking.new(
+    start_date: Date.new(2019,12,1),
+    end_date: Date.new(2019,12,31),
+    user: user,
+    animal: animal
+    )
+  booking.save!
 
 end
 

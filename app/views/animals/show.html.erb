@@ -1,34 +1,41 @@
-<%=render 'components/banner', photo: @animal.photo%>
 <div class="container">
+  <div class="d-flex justify-content-between">
+    <div class="flex-child">
+      <%= cl_image_tag(@animal.photo, width: 550, height: 550, crop: :fill) %>
+
+      <div class="d-flex">
+        <div>
+          <h1><%=@animal.name%></h1>
+          <h5><%=@animal.location%></h5>
+        </div>
+        <div>
+          <h5><%=@animal.user.name%></h5>
+        </div>
+      </div>
+
+      <div class="card">
+        <h5>Species: </h5>
+        <p><%=@animal.species%></p>
+        <h5>Description: </h5>
+        <p><%=@animal.characteristics%></p>
+      </div>
+    </div>
+
+    <div class="flex-child sticky-top">
+      <div class="border-bottom">
+        <h2>Booking</h2>
+        <p>Enter the dates on which you would want to book the <%=@animal.species%> <%=@animal.name%></p>
+      </div>
+      <%=simple_form_for (@booking) do |f|%>
+      <%=f.input :start_date %>
+      <%=f.input :end_date %>
+      <%=f.hidden_field :animal, value: @animal.id%>
+      <%=f.submit "Book", class: "button-primary" %>
+      <%end%>
+    </div>
+  </div>
+
   <div>
-   <div>
-     <h1><%=@animal.name%> - <%=@animal.species%></h1>
-     <h4><%=@animal.location%></h4>
-   </div>
-
-   <div>
-     <!-- <h4><%=@animal.user%></h4> -->
-   </div>
-  </div>
-
-  <div class="card">
-    <h5>Species: </h5>
-    <p><%=@animal.species%></p>
-    <h5>Description: </h5>
-    <p><%=@animal.characteristics%></p>
-  </div>
-
-
-  <div class="d-flex">
     <%= link_to "Back to all animals", animals_path, class:"button-primary" %>
-    <%=simple_form_for [@animal] do |f|%>
-    <%=f.submit "Book", class: "button-primary" %>
-    <%end%>
   </div>
-
-
-   <div>
-    <!-- FORM NEEDS A USER TO BE LOGGED IN -->
-   </div>
-
 </div>

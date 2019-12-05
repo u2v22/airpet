@@ -13,15 +13,16 @@
           <div>
             <h2><%= booking.animal.name %></h2>
             <p><%= booking.animal.species %></p>
+          <p><%= booking.start_date %>~<%= booking.end_date %></p>
           </div>
           <h2 class="card-trip-pricing">
-            <%= booking.animal.price %>/night
-            <%#= link_to edit_animal_path(booking.animal) do%>
-              <!-- <i class="far fa-edit"></i> -->
-            <%# end %>
-            <%#= link_to animal_path(booking.animal), method: :delete, data: { confirm: "Are you sure?" } do %>
-              <!-- <i class="far fa-trash-alt"></i> -->
-            <%# end %>
+            <%= link_to edit_animal_path(booking.animal) do%>
+              <i class="far fa-edit"></i>
+            <% end %>
+            <%= link_to booking_path(booking.animal), method: :delete, data: { confirm: "Are you sure?" } do %>
+              <i class="far fa-trash-alt"></i>
+            <% end %>
+
           </h2>
         </div>
       </div>

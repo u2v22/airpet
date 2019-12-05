@@ -1,5 +1,6 @@
 Animal.destroy_all
 User.destroy_all
+Booking.destroy_all
 
 PICTURES = [
   "https://images.unsplash.com/photo-1558618047-f4b511aae74d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
@@ -27,6 +28,7 @@ user.save
 
 puts 'Creating 10 fake animals...'
 index = 0
+
 10.times do
   animal = Animal.new(
     name: Faker::Creature::Cat.name,
@@ -41,8 +43,20 @@ index = 0
   )
   animal.save!
   index += 1
+
+    booking = Booking.new(
+      start_date: Date.new(2019,12,1),
+      end_date: Date.new(2019,12,31),
+      user: user,
+      animal: animal
+      )
+    booking.save!
+
 end
+
+
 puts 'Finished!'
 
 p "#{User.count} users created"
 p "#{Animal.count} animals created"
+p "#{Booking.count} bookings created"

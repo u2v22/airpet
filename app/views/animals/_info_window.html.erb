@@ -1,0 +1,16 @@
+<div class="cards-popup">
+  <%= link_to animal_path(animal) do %>
+  <div class="card-trip">
+    <%= cl_image_tag animal.photo %>
+    <div class="card-trip-infos">
+       <div>
+         <h2><%= animal.name %></h2>
+         <p><%= animal.species %></p>
+       </div>
+        <p class="card-trip-pricing">
+        <%= animal.location %>
+        </p>
+    </div>
+  </div>
+  <% end %>
+</div>

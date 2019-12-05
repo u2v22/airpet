@@ -1,8 +1,13 @@
 .cards {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   grid-gap: 16px;
   margin-right: 16px;
+}
+
+.cards-popup {
+  display: grid;
+  grid-template-columns: 1fr;
 }
 
 .card-trip {

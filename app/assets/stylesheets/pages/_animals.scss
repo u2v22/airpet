@@ -52,3 +52,10 @@
   position: sticky;
   top: 0;
 }
+
+.cards-index {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 16px;
+  margin-right: 16px;
+}

@@ -2,7 +2,7 @@
   <div class="all-wrapper">
     <div class="animal-wrapper">
       <p><%= @animals.count %> pets to rent</p>
-      <div class='cards'>
+      <div class='cards-index'>
         <% @animals.each do |animal| %>
         <%= link_to animal_path(animal) do %>
           <div class="card-trip">

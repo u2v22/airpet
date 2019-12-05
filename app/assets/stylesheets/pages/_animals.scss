@@ -35,3 +35,20 @@
   background-position: -200px 10px;
     margin: -33px 0px;
 }
+
+.all-wrapper {
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.animals-wrapper {
+  display:grid;
+  grid-template-columns: 1fr;
+}
+
+#map {
+  width: 100%;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+}

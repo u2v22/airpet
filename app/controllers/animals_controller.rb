@@ -1,6 +1,6 @@
 class AnimalsController < ApplicationController
-  before_action :animal_find, only: [:edit, :update, :show, :destroy]
-  skip_before_action :authenticate_user!, only: [:index, :show]
+  before_action :animal_find, only: %i[edit update show destroy]
+  skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
     @animals = Animal.all
@@ -36,6 +36,7 @@ class AnimalsController < ApplicationController
     @animal.destroy
     redirect_to user_path(current_user)
   end
+
   private
 
   def animal_find

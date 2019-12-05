@@ -35,3 +35,13 @@
   background-position: -200px 10px;
     margin: -33px 0px;
 }
+
+.flex-child {
+  flex: 1;
+}
+
+.sticky-top {
+  height: 100vh;
+  position: sticky;
+  top: 0;
+}

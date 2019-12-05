@@ -35,3 +35,8 @@
   background-position: -200px 10px;
     margin: -33px 0px;
 }
+
+.all-wrapper {
+  display:grid;
+  grid-template-columns: 2fr 1fr;
+}

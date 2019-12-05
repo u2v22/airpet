@@ -1,8 +1,10 @@
 <div class="container">
   <div class="row user-info">
-    <i class="col-sm-12 col-md-6 fas fa-user"></i>
-    <div class="description col-sm-12 col-md-6">
-      <h1>Hello,<%= current_user.first_name %></h1>
+    <div class="col-sm-12 col-md-6">
+      <%= cl_image_tag current_user.avatar, class:"avatar-profile " %>
+    </div>
+    <div class="description col-sm-12 col-md-6 ">
+      <h1>Hello <%= current_user.first_name %>,</h1>
       <br>
       <h5>Your public description:</h5>
       <p>I am the owner of the Barcelona Animal Rescue shelter. The pets that come into my shelter deserve attention and love. When you choose to foster a pet from our shelter, you will be changing the quality of life for a little animal. Most of our animals come from the streets of Barcelona. They often come to us malnourished and lack of affection for an extended amount of time.</p>

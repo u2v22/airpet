@@ -45,8 +45,9 @@
   grid-template-columns: 1fr;
 }
 .sticky-top {
-  position: fixed;
-  top: 78px;
+  position: sticky;
+  top: 10px;
+  width: 375px;
 }
 
 #map {

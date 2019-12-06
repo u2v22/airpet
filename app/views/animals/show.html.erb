@@ -1,28 +1,28 @@
 <div class="container">
   <div class="row"> <!--Dividing the screen in 2-->
-    <div class="col"> <!--First half of the screen-->
+    <div class="col-8"> <!--First half of the screen-->
 
-      <%= cl_image_tag(@animal.photo, width: 550, height: 550, crop: :fill) %>
+      <%= cl_image_tag(@animal.photo, class: "w-100 mb-3") %>
 
       <div class="card">
         <h1><%=@animal.name%></h1>
-        <p><%=@animal.species%></p>
+        <p class="mb-0">Species: <%=@animal.species%></p>
         <div class="d-flex justify-content-between">
-          <p><%=@animal.location%></p>
-          <p><%=@animal.user.name%></p>
+          <p>Located in <%=@animal.location%></p>
+          <p><%=@animal.user.avatar%></p>
         </div>
       </div>
 
 
       <div class="card">
-        <h4><%=@animal.name%>: </h4>
+        <h4>Description </h4>
         <i><p>"<%=@animal.characteristics%>"</p></i>
       </div>
 
       <div class="card">
         <div>
           <h4>Reviews</h4>
-          <p><%=pluralize @animal.reviews.size, "review"%> about <%=@animal.name%></p>
+          <p class="text-secondary"><%=pluralize @animal.reviews.size, "review"%> about <%=@animal.name%></p>
         </div>
 
         <div class="border-bottom mb-4">
@@ -41,11 +41,12 @@
           <p>How did you like <%=@animal.name%>?</p>
           <%=render "reviews/form", animal: @animal, review: Review.new %>
         </div>
+        <%= link_to "Back to all animals", animals_path, class: "mb-1 text-secondary" %>
       </div>
     </div>
 
-    <div class="col"> <!--Second half of the screen-->
-      <div class="sticky-top card">
+    <div class="col-4"> <!--Second half of the screen-->
+      <div class="sticky-top card justify-content-center">
         <div class="border-bottom mb-4">
           <h2>Booking</h2>
           <p>Enter the dates on which you would want to book the <%=@animal.species%> <%=@animal.name%></p>
@@ -58,8 +59,4 @@
       </div>
     </div>
   </div>
-</div>
-
-<div>
-  <%= link_to "Back to all animals", animals_path, class:"button-primary" %>
 </div>

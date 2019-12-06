@@ -1,12 +1,14 @@
-<div class="pet-header">
-  <h3 class="my-pets-cards">Reviews about <%=@animal.name%></h3>
-  <p><%=@reviews.count%> reviews about <%=@animal.name%></p>
+<h3 class="my-pets-cards">Reviews about <%=@animal.name%></h3>
+<p><%=pluralize @animal.reviews.size, "review"%> about <%=@animal.name%></p>
 
-  <%@reviews.each do |review|%>
+<%if @animal.reviews.blank?%>
+  <p>Be the first to leave a review for <%=@animal.name%></p>
+<%else%>
+  <%@animal.reviews.each do |review|%>
     <div class="d-flex justify-content-between">
       <p><%=review.description%></p>
       <p><%=review.rating%></p>
-<!--       <%= link_to edit_animal_review_path(review) do%>
+<!--    <%= link_to edit_animal_review_path(review) do%>
         <i class="far fa-edit"></i>
       <%end%>
       <%= link_to animal_review_path(review), method: :delete, data: { confirm: "Are you sure?" } do %>
@@ -14,6 +16,5 @@
       <%end%> -->
     </div>
   <%end%>
-
-</div>
+<%end%>
 

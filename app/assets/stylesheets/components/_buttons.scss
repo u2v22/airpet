@@ -18,13 +18,20 @@
   color: white;
   border:none;
   width: 100%;
-  
-.button-lg-primary {
-  width: 100%;
-  padding: 16px;
-  font-size: 24px;
-  color:white;
-  opacity: 100%;
+  margin-top: 28px;
+  margin-bottom: 28px;
+}
+
+
+.button-home {
+  padding: 10px 56px;
+  border-radius: 8px;
+  font-size: 16px;
   background-color: black;
-  border: none;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  color: white;
+  border:none;
+  width: 100%;
+  margin-top: 28px;
+  margin-bottom: 28px;
 }

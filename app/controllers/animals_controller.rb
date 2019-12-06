@@ -12,6 +12,13 @@ class AnimalsController < ApplicationController
       @animals = Animal.geocoded # Animal.wherenot(lat:nil, lng: nil)
     end
 
+    if params[:location].present?
+      sql_query = "animals.location @@ :location"
+      @animals = Animal.where(sql_query, location: "%#{params[:location]}%")
+    else
+      @animals = Animal.geocoded
+    end
+
     @markers = @animals.map do |animal|
       {
         lat: animal.latitude,

@@ -1,47 +1,59 @@
-
 <html class="home-page">
-  <div class="container">
-      <div class="landing-title">
-        <h1>Welcome to AirPet</h1>
-        <p>Where you can share your pet with other people that aren't lucky enough to have their own</p>
-
-        <div class="row">
-
-          <div class="col-12 col-md-6  landing-form">
-            <form action="/animals" method="get">
-              <div class='text-center landing-label'>
-                <label for="location">Location:</label>
-              </div>
-              <div class='text-center landing-input'>
-                <input type="text" name="location" placeholder="Location">
-              </div>
-
-              <div class='text-center landing-label'>
-                <label for="pet">Pet:</label>
-              </div>
-              <div class='text-center landing-input'>
-                <input type="text" name="pet" placeholder="What kind of animal">
-              </div>
-
-              <div class='text-center landing-label'>
-                <label for="start-date">Start date: </label>
-              </div>
-              <div class='text-center landing-input'>
-                <input type="date" name="start_date">
-              </div>
-              <div class='text-center landing-label'>
-                <label for="end-date">End date: </label>
-              </div>
-              <div class='text-center landing-input'>
-                <input type="date" name="end_date">
-              </div>
-              <div class='text-center'>
-                <input type="submit" class="button-primary">
-              </div>
-            </form>
-           </div>
-            </div>
+  <div class="container mt-5">
+    <div class="landing-titl">
+      <h1>Welcome to AirPet</h1>
+      <p>Where you can share your pet with other people that aren't lucky enough to have their own</p>
+      <div class="row ml-3">
+        <div class="col-12 col-md-6">
+          <%= form_tag animals_path, method: :get do %>
+            <%= text_field_tag :location,
+            params[:location], id:'animal_address', class: "form-control",
+            placeholder: "City" %><br>
+            <%= select_tag :species,
+            params[:species], class: "form-control",
+            placeholder: "Type of animal" %><br>
+            <%= date_field_tag :start_date,
+            params[:start_date], class: "form-control",
+            placeholder: Date.current %><br>
+            <%= date_field_tag :end_date,
+            params[:end_date], class: "form-control",
+            placeholder: Date.current %><br>
+            <%= submit_tag "Find your Pet!", class: "button-primary" %>
+          <% end %>
+        </div>
       </div>
+    </div>
   </div>
 </div>
 
+
+<!--
+<form action="/animals" method="get">
+            <div class='text-center landing-label'>
+              <label for="location">Location:</label>
+            </div>
+            <div class='text-center landing-input'>
+              <input type="text" name="location" placeholder="Location">
+            </div>
+            <div class='text-center landing-label'>
+              <label for="pet">Pet:</label>
+            </div>
+            <div class='text-center landing-input'>
+              <input type="text" name="pet" placeholder="What kind of animal">
+            </div>
+            <div class='text-center landing-label'>
+              <label for="start-date">Start date: </label>
+            </div>
+            <div class='text-center landing-input'>
+              <input type="date" name="start_date">
+            </div>
+            <div class='text-center landing-label'>
+              <label for="end-date">End date: </label>
+            </div>
+            <div class='text-center landing-input'>
+              <input type="date" name="end_date">
+            </div>
+            <div class='text-center'>
+              <input type="submit" class="button-primary">
+            </div>
+          </form> -->

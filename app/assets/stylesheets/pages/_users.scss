@@ -13,7 +13,7 @@
   padding-right:40px
 }
 .description p{
-
+  color:rgba(0, 0, 0, 0.7);
 }
 .description h1{
   font-family: $global-font;
@@ -22,9 +22,14 @@
 }
 
 .my-pets-cards{
-  margin-top: 20px;
+  margin: 20px 0px;
+  border-bottom: solid 2px rgba(0, 0, 0, 0.3);
+  color:rgba(0, 0, 0, 0.7);
+  padding-bottom: 4px;
 }
-
+.my-pets-cards a:hover{
+  color: inherit;
+}
 .user-info {
   margin-bottom: 100px;
 }

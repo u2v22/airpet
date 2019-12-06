@@ -1,4 +1,5 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+  <div class="d-flex">
   <%= link_to root_path do %>
   <div class="avatar avatar-bg">
     <i class="fas fa-paw avatar-font"></i>
@@ -7,16 +8,18 @@
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-    <%= form_tag animals_path, method: :get, class: "d-flex mr-5" do %>
+    <%= form_tag animals_path, method: :get, class: "d-flex justify-content-left inline ml-4 nav-search" do %>
     <%= text_field_tag :query,
         params[:query],
         class: "form-control",
         placeholder: "Find an animal"%>
-        <%= submit_tag "Search", class: "btn btn-primary ml-3" %>
+        <%= submit_tag "Search", class: "btn-no-format" %>
     <% end %>
+  </div>
+<div class="div">
+    </div>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav">
 
       <li class="nav-item">
         <%= link_to "Rent your pet", new_animal_path, class: "nav-link" %>

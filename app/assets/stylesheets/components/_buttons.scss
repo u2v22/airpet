@@ -9,6 +9,17 @@
   border:none;
 }
 
+.btn-no-format {
+  background-color: Transparent;
+  background-repeat:no-repeat;
+  border: none;
+  cursor:pointer;
+  outline:none;
+  color: white;
+  margin: 0 8px;
+}
+
+
 .button-calltoaction {
   padding: 8px 56px;
   border-radius: 8px;
@@ -19,6 +30,7 @@
   border:none;
   width: 100%;
   
+
 .button-lg-primary {
   width: 100%;
   padding: 16px;

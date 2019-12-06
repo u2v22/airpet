@@ -52,8 +52,6 @@ const checkMarkers = (map, markers) => {
   });
 });
 
-//object.style.visibility = "visible|hidden|collapse|initial|inherit"
-
 const initMapbox = () => {
   if (mapElement) {
     const map = buildMap();

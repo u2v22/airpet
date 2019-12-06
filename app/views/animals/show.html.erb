@@ -4,52 +4,57 @@
 
       <%= cl_image_tag(@animal.photo, width: 550, height: 550, crop: :fill) %>
 
-      <div class="d-flex border-bottom">
-        <div>
-          <h1><%=@animal.name%></h1>
-          <h5><%=@animal.location%></h5>
-        </div>
-        <div>
-          <h5><%=@animal.user.name%></h5>
-        </div>
-      </div>
-
-      <div>
-        <h5>Species: </h5>
+      <div class="card">
+        <h1><%=@animal.name%></h1>
         <p><%=@animal.species%></p>
-        <h5>Description: </h5>
-        <p><%=@animal.characteristics%></p>
+        <div class="d-flex justify-content-between">
+          <p><%=@animal.location%></p>
+          <p><%=@animal.user.name%></p>
+        </div>
       </div>
 
-      <div>
-        <%= render "reviews"%>
+
+      <div class="card">
+        <h4><%=@animal.name%>: </h4>
+        <i><p>"<%=@animal.characteristics%>"</p></i>
       </div>
 
-      <div>
-        <h2>Reviews</h2>
-        <p>Do you want to say something about <%=@animal.name%> the <%=@animal.species%>?</p>
+      <div class="card">
+        <div>
+          <h4>Reviews</h4>
+          <p><%=pluralize @animal.reviews.size, "review"%> about <%=@animal.name%></p>
+        </div>
 
-        <%=simple_form_for([@animal, @review]) do |f|%>
-          <%=f.input :rating %>
-          <%=f.input :description %>
-          <%=f.submit "Post review", class: "button-primary"%>
-        <%end%>
+        <div class="border-bottom mb-4">
+          <%if @animal.reviews.blank?%>
+            <p>Be the first to leave a review for <%=@animal.name%></p>
+          <%else%>
+            <div id="reviews">
+              <%@animal.reviews.each do |review|%>
+                <%= render "animals/review", review: review %>
+              <%end%>
+            </div>
+          <%end%>
+        </div>
+
+        <div>
+          <p>How did you like <%=@animal.name%>?</p>
+          <%=render "reviews/form", animal: @animal, review: Review.new %>
+        </div>
       </div>
-
     </div>
 
-    <div class="col">
-      <div class="sticky-top">
-        <div class="border-bottom">
+    <div class="col"> <!--Second half of the screen-->
+      <div class="sticky-top card">
+        <div class="border-bottom mb-4">
           <h2>Booking</h2>
           <p>Enter the dates on which you would want to book the <%=@animal.species%> <%=@animal.name%></p>
         </div>
-        <%=simple_form_for (@booking) do |f|%>
-          <%=f.input :start_date %>
-          <%=f.input :end_date %>
-          <%=f.hidden_field :animal, value: @animal.id%>
-          <%=f.submit "Book", class: "button-primary" %>
-        <%end%>
+
+        <div>
+          <%=render "bookings/form"%>
+        </div>
+
       </div>
     </div>
   </div>

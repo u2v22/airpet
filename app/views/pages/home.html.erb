@@ -9,15 +9,13 @@
             <%= text_field_tag :location,
             params[:location], id:'animal_address', class: "form-control",
             placeholder: "City" %><br>
-            <%= select_tag :species,
-            params[:species], class: "form-control",
-            placeholder: "Type of animal" %><br>
+            <%= select_tag :species, options_for_select(Animal::SPECIES) %><br>
             <%= date_field_tag :start_date,
             params[:start_date], class: "form-control",
-            placeholder: Date.current %><br>
+            placeholder: Date.current, value: Date.current%><br>
             <%= date_field_tag :end_date,
             params[:end_date], class: "form-control",
-            placeholder: Date.current %><br>
+            placeholder: Date.current, value: Date.tomorrow %><br>
             <%= submit_tag "Find your Pet!", class: "button-primary" %>
           <% end %>
         </div>

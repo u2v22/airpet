@@ -1,10 +1,10 @@
 <div class="animal-new-background">
   <div class='container'>
     <div class="create-animal">
-      <h1>Hi<%#= current_user.name.capitalize %>! Let's get started listing your pet</h1>
+      <h1>Let's get started listing your pet</h1>
       <div class="create-form">
         <div class="input-form">
-          <h3>Step 1</h3>
+<!--           <h3>Step 1</h3> -->
           <%= simple_form_for(@animal) do |f| %>
           <%= f.input :name %>
           <%= f.input :species, collection: Animal::SPECIES %>
@@ -20,6 +20,7 @@
         </div>
         <div>
         </div>
+
       </div>
     </div>
   </div>

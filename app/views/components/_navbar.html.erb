@@ -8,12 +8,12 @@
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-    <%= form_tag animals_path, method: :get, class: "d-flex justify-content-left inline" do %>
+    <%= form_tag animals_path, method: :get, class: "d-flex justify-content-left inline ml-4 nav-search" do %>
     <%= text_field_tag :query,
         params[:query],
         class: "form-control",
         placeholder: "Find an animal"%>
-        <%= submit_tag "Search", class: "btn btn-primary ml-3" %>
+        <%= submit_tag "Search", class: "btn-no-format" %>
     <% end %>
   </div>
 <div class="div">

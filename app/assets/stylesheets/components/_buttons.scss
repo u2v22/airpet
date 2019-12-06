@@ -9,6 +9,16 @@
   border:none;
 }
 
+.btn-no-format {
+  background-color: Transparent;
+  background-repeat:no-repeat;
+  border: none;
+  cursor:pointer;
+  outline:none;
+  color: white;
+  margin: 0 8px;
+}
+
 .button-lg-primary {
   width: 100%;
   padding: 16px;

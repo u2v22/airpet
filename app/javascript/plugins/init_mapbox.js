@@ -1,5 +1,5 @@
-
 import mapboxgl from 'mapbox-gl';
+import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
 
 const mapElement = document.getElementById('map');
 
@@ -23,6 +23,7 @@ const addMarkersToMap = (map, markers) => {
 
 const fitMapToMarkers = (map, markers) => {
   const bounds = new mapboxgl.LngLatBounds();
+  console.log("asdkjfkajsdflls");
   markers.forEach(marker => bounds.extend([ marker.lng, marker.lat ]));
   map.fitBounds(bounds, { padding: 70, maxZoom: 15 });
 };
@@ -32,7 +33,7 @@ const checkMarkers = (map, markers) => {
     let i = 0;
       markers.forEach((marker) => {
       const a = map.getBounds().contains([ marker.lng, marker.lat ])
-      let b = document.querySelectorAll('.cards-index').forEach((card) => {
+      let b = document.querySelectorAll('.cards-animal-index').forEach((card) => {
       if (a) {
         console.log('super');
         card.children[i].style.display = 'block';
@@ -46,11 +47,11 @@ const checkMarkers = (map, markers) => {
   }
 )};
 
-  document.querySelectorAll("img").forEach((img) => {
-  img.addEventListener("click", (event) => {
-    event.currentTarget.classList.toggle("img-circle");
-  });
-});
+//   document.querySelectorAll("img").forEach((img) => {
+//   img.addEventListener("click", (event) => {
+//     event.currentTarget.classList.toggle("img-circle");
+//   });
+// });
 
 const initMapbox = () => {
   if (mapElement) {

@@ -1,47 +1,25 @@
-
 <html class="home-page">
-  <div class="container">
-      <div class="landing-title">
-        <h1>Welcome to AirPet</h1>
-        <p>Where you can share your pet with other people that aren't lucky enough to have their own</p>
-
-        <div class="row">
-
-          <div class="col-12 col-md-6  landing-form">
-            <form action="/animals" method="get">
-              <div class='text-center landing-label'>
-                <label for="location">Location:</label>
-              </div>
-              <div class='text-center landing-input'>
-                <input type="text" name="location" placeholder="Location">
-              </div>
-
-              <div class='text-center landing-label'>
-                <label for="pet">Pet:</label>
-              </div>
-              <div class='text-center landing-input'>
-                <input type="text" name="pet" placeholder="What kind of animal">
-              </div>
-
-              <div class='text-center landing-label'>
-                <label for="start-date">Start date: </label>
-              </div>
-              <div class='text-center landing-input'>
-                <input type="date" name="start_date">
-              </div>
-              <div class='text-center landing-label'>
-                <label for="end-date">End date: </label>
-              </div>
-              <div class='text-center landing-input'>
-                <input type="date" name="end_date">
-              </div>
-              <div class='text-center'>
-                <input type="submit" class="button-primary">
-              </div>
-            </form>
-           </div>
-            </div>
-      </div>
+  <div class="container mt-5 col-3 selector-options-background">
+    <h1 class="text-black">Welcome to AirPet</h1>
+    <p class="text-black">Where you can share your pet with other people that aren't lucky enough to have their own</p>
+    <div class="row px-3">
+      <%= form_tag animals_path, method: :get, class:"flex-grow-1" do %>
+        <label class="text-black">Location</label>
+        <%= text_field_tag :location,
+        params[:location], id:'animal_address',
+        class: "form-control", placeholder: "City" %><br><br>
+        <label class="text-black">Pet</label>
+        <%= select_tag :species, options_for_select(Animal::SPECIES), class: "form-control" %><br>
+        <label class="text-black">Pickup date</label>
+        <%= date_field_tag :start_date,
+        params[:start_date], class: "form-control",
+        placeholder: Date.current, value: Date.current%><br>
+        <label class="text-black">Return date</label>
+        <%= date_field_tag :end_date,
+        params[:end_date], class: "form-control",
+        placeholder: Date.current, value: Date.tomorrow %><br>
+        <%= submit_tag "Find your Pet!", class: "button-lg-primary" %>
+      <% end %>
+    </div>
   </div>
 </div>
-

@@ -3,6 +3,7 @@
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   grid-gap: 16px;
   margin-right: 16px;
+  font-family: $global-font;
 }
 
 .cards-popup {
@@ -24,7 +25,6 @@
 
 .card-trip h2 {
   font-size: 16px;
-  font-weight: bold;
   margin: 0;
 }
 
@@ -36,7 +36,7 @@
 
 
 .card-trip .card-trip-infos {
-  padding: 16px;
+  padding: 8px;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
@@ -56,4 +56,8 @@
   margin-bottom: 10px;
   border:none;
   box-shadow: 0 10px 30px rgba(0,0,0,.1);
+}
+.card-trip-pricing{
+    font-family: $global-font;
+    display: block;
 }

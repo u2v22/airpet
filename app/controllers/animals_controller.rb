@@ -4,7 +4,21 @@ class AnimalsController < ApplicationController
 
   def index
     # @animals = Animal.all
-    @animals = Animal.geocoded # Animal.wherenot(lat:nil, lng: nil)
+
+    if params[:query].present?
+      sql_query = "animals.species @@ :query OR animals.location @@ :query OR animals.name @@ :query"
+      @animals = Animal.where(sql_query, query: "%#{params[:query]}%")
+    else
+      @animals = Animal.geocoded # Animal.wherenot(lat:nil, lng: nil)
+    end
+
+    if params[:location].present?
+      sql_query = "animals.location @@ :location"
+      @animals = Animal.where(sql_query, location: "%#{params[:location]}%")
+    else
+      @animals = Animal.geocoded
+    end
+
     @markers = @animals.map do |animal|
       {
         lat: animal.latitude,

@@ -7,7 +7,7 @@
     <div class='cards'>
       <%@requests.each do |request|%>
         <div class="card-trip">
-          <%= link_to animal_path(request.animal) do  %>
+          <%= link_to user_path(request.user_id) do  %>
           <%= cl_image_tag request.animal.photo %>
           <% end %>
           <div class="card-trip-infos d-flex">
@@ -15,15 +15,15 @@
               <h2><%= request.animal.name %></h2>
               <p><%= request.animal.species %></p>
             </div>
-            <div class="card-trip-pricing text-right d-flex flex-column">
-              <p> Status: <%= request.status %></p>
+            <div class="card-trip-pricing text-right d-flex flex-column" data-request-id='<%= request.id %>'>
+              <p> Status: <span class="booking-status"><%= request.status %></span></p>
               <div class="text-right d-flex flex-row-reverse ">
                 <div class="pl-2">
-                  <%= link_to accept_booking_path(request),method: :patch do  %>
+                  <%= link_to accept_booking_path(request),method: :patch, remote: true do  %>
                     <i class="fas fa-check"></i>
                   <% end %>
                 </div>
-                <%= link_to decline_booking_path(request), method: :patch do  %>
+                <%= link_to decline_booking_path(request), method: :patch, remote: true do  %>
                   <i class="far fa-times-circle"></i>
                 <% end %>
               </div>

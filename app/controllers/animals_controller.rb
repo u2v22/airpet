@@ -52,7 +52,10 @@ class AnimalsController < ApplicationController
 
   def destroy
     @animal.destroy
-    redirect_to user_path(current_user)
+    respond_to do |format|
+      format.html { user_path(current_user) } #if js not working respond with html
+      format.js # <-- will render `app/views/reviews/create.js.erb`
+    end
   end
 
   private

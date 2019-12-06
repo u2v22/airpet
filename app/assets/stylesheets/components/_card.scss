@@ -2,7 +2,6 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   grid-gap: 16px;
-  margin-right: 16px;
   font-family: $global-font;
 }
 
@@ -56,4 +55,7 @@
 .card-trip-pricing{
     font-family: $global-font;
     display: block;
+}
+.card-trip-pricing a:hover{
+  color:inherit;
 }

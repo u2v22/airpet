@@ -25,12 +25,18 @@ class BookingsController < ApplicationController
 
   def accept
     @booking.update(status: "accepted")
-    redirect_to user_path(current_user)
+    respond_to do |format|
+      format.html { user_path(current_user) } #if js not working respond with html
+      format.js # <-- will render `app/views/bookings/create.js.erb`
+    end
   end
 
   def decline
     @booking.update(status: "declined")
-    redirect_to user_path(current_user)
+    respond_to do |format|
+      format.html { user_path(current_user) } #if js not working respond with html
+      format.js # <-- will render `app/views/bookings/create.js.erb`
+    end
   end
 
   private
@@ -42,8 +48,6 @@ class BookingsController < ApplicationController
   def animal_params
     params.require(:booking).permit(:animal, :user, :start_date, :end_date)
   end
-
-  private
 
   def booking_params
     params.require(:booking).permit(:start_date, :end_date)

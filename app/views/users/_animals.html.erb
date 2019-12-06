@@ -7,23 +7,24 @@
     </h3>
     <div class='cards'>
       <%  current_user.animals.each do |animal|%>
-      <div class="card-trip">
+      <div class="card-trip" data-animal-id="<%=animal.id%>">
         <%= link_to animal_path(animal) do  %>
           <%= cl_image_tag animal.photo %>
         <% end %>
-        <div class="card-trip-infos ">
+        <div class="card-trip-infos align-items-start">
           <div>
             <h2><%= animal.name %></h2>
             <p><%= animal.species %></p>
           </div>
-          <div class="card-trip-pricing text-right animal-price-font">
+          <div class="card-trip-pricing text-right animal-price-font d-flex flex-column" >
             <%= animal.price %>/day
-            <br>
-            <%= link_to edit_animal_path(animal) do%>
-              <i class="far fa-edit"></i>
-            <% end %>
-            <%= link_to animal_path(animal), method: :delete, data: { confirm: "Are you sure?" } do %>
-              <i class="far fa-trash-alt"></i>
+            <div>
+              <%= link_to edit_animal_path(animal) do%>
+                <i class="far fa-edit"></i>
+              <% end %>
+              <%= link_to animal_path(animal), method: :delete, remote: true, data: { confirm: "Are you sure?" } do %>
+                <i class="far fa-trash-alt"></i>
+            </div>
             <% end %>
           </div>
          </div>

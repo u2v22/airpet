@@ -32,7 +32,7 @@ const checkMarkers = (map, markers) => {
     let i = 0;
       markers.forEach((marker) => {
       const a = map.getBounds().contains([ marker.lng, marker.lat ])
-      let b = document.querySelectorAll('.cards-index').forEach((card) => {
+      let b = document.querySelectorAll('.cards-animal-index').forEach((card) => {
       if (a) {
         console.log('super');
         card.children[i].style.display = 'block';

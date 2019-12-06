@@ -8,9 +8,7 @@ class UsersController < ApplicationController
       @animals << animal.id
     end
     allbookings.each do |booking|
-      if @animals.include?(booking.animal_id)
-        @requests << booking
-      end
+      @requests << booking if @animals.include?(booking.animal_id)
     end
   end
 end

@@ -9,8 +9,19 @@
     <span class="navbar-toggler-icon"></span>
   </button>
 
+
+
+
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
+    <%= form_tag animals_path, method: :get, class: "d-flex mr-5" do %>
+    <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "Find an animal"%>
+        <%= submit_tag "Search", class: "btn btn-primary ml-3" %>
+    <% end %>
+
       <li class="nav-item">
         <%= link_to "Rent your pet", new_animal_path, class: "nav-link" %>
       </li>

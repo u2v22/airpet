@@ -39,17 +39,6 @@
                 <input type="submit" class="button-primary">
               </div>
             </form>
-
-            <%= form_tag animals_path, method: :get do %>
-            <%= text_field_tag :query,
-                params[:query],
-                class: "form-control",
-                placeholder: "Find an animal"
-                %>
-            <%= submit_tag "Search", class: "btn btn-primary" %>
-            <% end %>
-
-
            </div>
             </div>
       </div>

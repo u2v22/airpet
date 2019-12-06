@@ -5,7 +5,7 @@ class AnimalsController < ApplicationController
   def index
     # @animals = Animal.all
     if params[:query].present?
-      sql_query = "animals.species ILIKE :query OR animals.location ILIKE :query OR animals.name ILIKE :query"
+      sql_query = "animals.species @@ :query OR animals.location @@ :query OR animals.name @@ :query"
       @animals = Animal.where(sql_query, query: "%#{params[:query]}%")
     else
       @animals = Animal.geocoded # Animal.wherenot(lat:nil, lng: nil)

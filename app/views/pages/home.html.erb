@@ -1,24 +1,24 @@
 <html class="home-page">
   <div class="container mt-5 col-3 selector-options-background">
-    <h1 class="text-black">Welcome to AirPet</h1>
+    <h1 class="text-black">Find a pet</h1>
     <p class="text-black">Where you can share your pet with other people that aren't lucky enough to have their own</p>
     <div class="row px-3">
       <%= form_tag animals_path, method: :get, class:"flex-grow-1" do %>
         <label class="text-black">Location</label>
         <%= text_field_tag :location,
         params[:location], id:'animal_address',
-        class: "form-control", placeholder: "City" %><br><br>
+        class: "form-control mb-1", placeholder: "City" %>
         <label class="text-black">Pet</label>
-        <%= select_tag :species, options_for_select(Animal::SPECIES), class: "form-control" %><br>
+        <%= select_tag :species, options_for_select(Animal::SPECIES), class: "form-control mb-1" %>
         <label class="text-black">Pickup date</label>
         <%= date_field_tag :start_date,
-        params[:start_date], class: "form-control",
-        placeholder: Date.current, value: Date.current%><br>
+        params[:start_date], class: "form-control mb-1",
+        placeholder: Date.current, value: Date.current%>
         <label class="text-black">Return date</label>
         <%= date_field_tag :end_date,
         params[:end_date], class: "form-control",
-        placeholder: Date.current, value: Date.tomorrow %><br>
-        <%= submit_tag "Find your Pet", class: "button-home" %>
+        placeholder: Date.current, value: Date.tomorrow %>
+        <%= submit_tag "Find your Pet", class: "button-home mt-3 mb-2" %>
       <% end %>
     </div>
   </div>

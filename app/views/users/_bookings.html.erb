@@ -11,27 +11,12 @@
         <% end %>
         <div class="card-trip-infos">
           <div>
-            <h2><%= booking.animal.name %></h2>
-            <p><%= booking.animal.species %></p>
-          <p><%= booking.start_date %>~<%= booking.end_date %></p>
+          <h2><%= booking.animal.name %></h2>
+          <p><%= booking.animal.species %></p>
+          <p><%= booking.start_date %>/</p>
+          <p><%= booking.end_date %></p>
           </div>
-          <h2 class="card-trip-pricing text-right">
-            <p> Status: <%= booking.status %></p>
-            <%= link_to edit_animal_path(booking.animal) do%>
-              <i class="far fa-edit"></i>
-            <% end %>
-            <%= link_to booking_path(booking.animal), method: :delete, data: { confirm: "Are you sure?" } do %>
-              <i class="far fa-trash-alt"></i>
-            <% end %>
-            <br>
-            <%= link_to accept_booking_path(booking), method: :patch do  %>
-            <i class="fas fa-check"></i>
-            <% end %>
-            <%= link_to decline_booking_path(booking), method: :patch do  %>
-            <i class="far fa-times-circle"></i>
-            <% end %>
-
-          </h2>
+          <p class="card-trip-pricing text-right"> Status: <%= booking.status %></p>
         </div>
       </div>
     <% end %>

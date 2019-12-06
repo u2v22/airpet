@@ -4,16 +4,19 @@ class AnimalsController < ApplicationController
 
   def index
     # @animals = Animal.all
+
     if params[:query].present?
       sql_query = "animals.species @@ :query OR animals.location @@ :query OR animals.name @@ :query"
       @animals = Animal.where(sql_query, query: "%#{params[:query]}%")
     else
       @animals = Animal.geocoded # Animal.wherenot(lat:nil, lng: nil)
     end
+
     @markers = @animals.map do |animal|
       {
         lat: animal.latitude,
         lng: animal.longitude,
+        potato: animal.id,
         infoWindow: render_to_string(partial: "info_window", locals: { animal: animal })
       }
     end
@@ -26,6 +29,8 @@ class AnimalsController < ApplicationController
   def show
     @user = current_user
     @booking = Booking.new
+    @review = Review.new
+    @reviews = Review.all
   end
 
   def create

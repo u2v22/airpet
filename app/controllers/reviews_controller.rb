@@ -4,18 +4,19 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @animal = Animal.find(params[:animal_id])
     @review.animal = @animal
+
     if @review.save
-      redirect_to animal_path(@animal)
+      respond_to do |format|
+        format.html { redirect_to animal_path(@animal) }
+        format.js  # render `app/views/reviews/create.js.erb`
+      end
     else
-      render "animals/show"
+      respond_to do |format|
+        format.html { render 'animals/show' }
+        format.js  # render `app/views/reviews/create.js.erb`
+      end
     end
   end
-
-  # def destroy
-  #   @review = Review.find(params[:id])
-  #   @review.destroy
-  #   redirect_to animal_path(@animal)
-  # end
 
   private
 

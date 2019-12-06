@@ -1,0 +1,5 @@
+<%=simple_form_for([animal, review], remote: true) do |f|%>
+  <%=f.input :rating, collection: Review::RATING %>
+  <%=f.input :description %>
+  <%=f.submit "Post review", class: "button-primary mx-0"%>
+<%end%>

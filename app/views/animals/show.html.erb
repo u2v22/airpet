@@ -26,15 +26,15 @@
         </div>
 
         <div class="border-bottom mb-4">
-          <%if @animal.reviews.blank?%>
-            <p>Be the first to leave a review for <%=@animal.name%></p>
-          <%else%>
-            <div id="reviews">
+          <div id="reviews">
+            <%if @animal.reviews.blank?%>
+              <p>Be the first to leave a review for <%=@animal.name%></p>
+            <%else%>
               <%@animal.reviews.each do |review|%>
                 <%= render "animals/review", review: review %>
               <%end%>
-            </div>
           <%end%>
+          </div>
         </div>
 
         <div>

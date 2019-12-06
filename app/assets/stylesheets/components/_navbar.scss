@@ -3,12 +3,15 @@
   background: black;
 }
 
-.navbar-lewagon .navbar-collapse {
+.navbar-lewagon {
+  .navbar-collapse {
   flex-grow: 0;
-}
+  }
 
-.navbar-lewagon .navbar-brand img {
+  .navbar-brand img {
   width: 50px;
+  }
+
 }
 
 .navbar-light .navbar-nav .nav-link {

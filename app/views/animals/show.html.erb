@@ -1,10 +1,10 @@
 <div class="container">
-  <div class="row">
-    <div class="col">
+  <div class="row"> <!--Dividing the screen in 2-->
+    <div class="col"> <!--First half of the screen-->
 
       <%= cl_image_tag(@animal.photo, width: 550, height: 550, crop: :fill) %>
 
-      <div class="d-flex">
+      <div class="d-flex border-bottom">
         <div>
           <h1><%=@animal.name%></h1>
           <h5><%=@animal.location%></h5>
@@ -14,25 +14,27 @@
         </div>
       </div>
 
-      <div class="card">
+      <div>
         <h5>Species: </h5>
         <p><%=@animal.species%></p>
         <h5>Description: </h5>
         <p><%=@animal.characteristics%></p>
       </div>
 
-      <%= render "reviews" %>
-
-    <div class="border-bottom">
-      <h2>Reviews</h2>
-        <p>Do you want to say something about <%=@animal.name%> the <%=@animal.species%>?</p>
+      <div>
+        <%= render "reviews"%>
       </div>
 
-      <%=simple_form_for([@animal, @review]) do |f|%>
-      <%=f.input :rating %>
-      <%=f.input :description %>
-      <%=f.submit "Post review", class: "button-primary"%>
-      <%end%>
+      <div>
+        <h2>Reviews</h2>
+        <p>Do you want to say something about <%=@animal.name%> the <%=@animal.species%>?</p>
+
+        <%=simple_form_for([@animal, @review]) do |f|%>
+          <%=f.input :rating %>
+          <%=f.input :description %>
+          <%=f.submit "Post review", class: "button-primary"%>
+        <%end%>
+      </div>
 
     </div>
 
@@ -43,10 +45,10 @@
           <p>Enter the dates on which you would want to book the <%=@animal.species%> <%=@animal.name%></p>
         </div>
         <%=simple_form_for (@booking) do |f|%>
-        <%=f.input :start_date %>
-        <%=f.input :end_date %>
-        <%=f.hidden_field :animal, value: @animal.id%>
-        <%=f.submit "Book", class: "button-primary" %>
+          <%=f.input :start_date %>
+          <%=f.input :end_date %>
+          <%=f.hidden_field :animal, value: @animal.id%>
+          <%=f.submit "Book", class: "button-primary" %>
         <%end%>
       </div>
     </div>

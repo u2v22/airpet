@@ -1,6 +1,6 @@
 <% if current_user.animals.present? %>
   <div class="pet-header">
-    <h3 class="my-pets-cards">Your pets
+    <h3 class="my-pets-cards">My pets
     <%= link_to new_animal_path do  %>
       <i class="fas fa-plus"></i>
     <% end %>
@@ -11,20 +11,21 @@
         <%= link_to animal_path(animal) do  %>
           <%= cl_image_tag animal.photo %>
         <% end %>
-        <div class="card-trip-infos">
+        <div class="card-trip-infos ">
           <div>
             <h2><%= animal.name %></h2>
             <p><%= animal.species %></p>
           </div>
-          <h2 class="card-trip-pricing">
-            <%= animal.price %>/night
+          <div class="card-trip-pricing text-right animal-price-font">
+            <%= animal.price %>/day
+            <br>
             <%= link_to edit_animal_path(animal) do%>
               <i class="far fa-edit"></i>
             <% end %>
             <%= link_to animal_path(animal), method: :delete, data: { confirm: "Are you sure?" } do %>
               <i class="far fa-trash-alt"></i>
             <% end %>
-          </h2>
+          </div>
          </div>
       </div>
       <% end %>
@@ -33,4 +34,3 @@
 <% else %>
 <%= %>
 <% end %>
-

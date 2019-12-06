@@ -1,5 +1,5 @@
 <div class="pet-header">
-  <h3 class="my-pets-cards">Your Bookings
+  <h3 class="my-pets-cards">My Bookings
     <%= link_to root_path do  %>
     <i class="fas fa-plus"></i>
   <% end %></h3>
@@ -13,11 +13,10 @@
           <div>
           <h2><%= booking.animal.name %></h2>
           <p><%= booking.animal.species %></p>
-          <p><%= booking.start_date %>/</p>
-          <p><%= booking.end_date %></p>
           </div>
-          <p class="card-trip-pricing text-right"> Status: <%= booking.status %></p>
+          <p class="card-trip-pricing text-right  d-flex align-self-start"> Status: <%= booking.status %></p>
         </div>
+          <p class="pl-2 pb-1"><%= booking.start_date %>~<%= booking.end_date %></p>
       </div>
     <% end %>
 </div>

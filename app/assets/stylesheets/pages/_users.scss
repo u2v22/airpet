@@ -6,10 +6,19 @@
 .profile-display{
   margin-top: 40px;
 }
+.description{
+  font-family: $global-font;
+  padding-top: 55px;
+  padding-left: 0;
+  padding-right:40px
+}
+.description p{
 
+}
 .description h1{
-  text-align: center;
-  margin-top: 20px;
+  font-family: $global-font;
+  margin-bottom: -10px;
+
 }
 
 .my-pets-cards{
@@ -22,4 +31,8 @@
 
 .pet-header {
   margin-bottom: 30px;
+}
+
+.animal-price-font{
+  font-size:14px;
 }

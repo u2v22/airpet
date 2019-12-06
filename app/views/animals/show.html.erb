@@ -41,7 +41,7 @@
           <p>How did you like <%=@animal.name%>?</p>
           <%=render "reviews/form", animal: @animal, review: Review.new %>
         </div>
-        <%= link_to "Back to all animals", animals_path, class: "mb-1 text-secondary" %>
+        <%= link_to "<i class='fas fa-arrow-left'></i>".html_safe, animals_path, class: "mt-5 mb-2 text-secondary" %>
       </div>
     </div>
 
